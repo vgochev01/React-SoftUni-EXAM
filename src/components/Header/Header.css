@@ -3,7 +3,8 @@ header {
     flex-direction: row;
     justify-content: space-between;
     /* margin: 0 86px; */
-    background: #880FD4;
+    background: rgb(192,146,222);
+background: linear-gradient(90deg, rgba(192,146,222,1) 0%, rgba(151,78,199,1) 64%, rgba(136,15,212,1) 100%);
     padding: 0 88px;
     color: white;
     /* border-bottom-left-radius: 60px;
@@ -13,8 +14,10 @@ header {
 .header-title {
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: whitesmoke;
+    color: #682095;
 }
+
+
 
 nav {
     display: flex;
@@ -44,4 +47,5 @@ nav {
 a {
     text-decoration: none;
     color: white;
+    letter-spacing: 1.5px;
 }
