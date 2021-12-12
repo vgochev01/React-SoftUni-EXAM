@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import AuthContext from '../../contexts/AuthContext';
 import * as authService from '../../services/authService';
 import './Login.css';
 
@@ -7,12 +8,16 @@ export default function Login() {
 
     const [err, setError] = useState(null);
 
+    const navigate = useNavigate();
+    const { setUser } = useContext(AuthContext);
+
     function onLogin(ev) {
         ev.preventDefault();
         const { email, password } = Object.fromEntries(new  FormData(ev.currentTarget));
         authService.login(email, password)
             .then(data => {
-                console.log(data);
+                setUser(data);
+                navigate('/');
             })
             .catch(err => {
                 setError(err.message);
@@ -38,16 +43,16 @@ export default function Login() {
                     <form onSubmit={onLogin} className="loginForm">
                         <div className="formGroup">
                             <label htmlFor="email">Email:</label>
-                            <i class="inputIcon fas fa-user"></i>
+                            <i className="inputIcon fas fa-user"></i>
                             <input type="text" id="email" name="email" placeholder='email@example.com' />
                         </div>
                         <div className="formGroup">
                             <label htmlFor="password">Password:</label>
-                            <i class="inputIcon fas fa-lock"></i>
+                            <i className="inputIcon fas fa-lock"></i>
                             <input type="password" id="password" name="password" placeholder="********" />
                         </div>
                         <div className="formGroup">
-                            <button className="submitBtn">Log in now <i class="fas fa-chevron-right"></i></button>
+                            <button className="submitBtn">Log in now <i className="fas fa-chevron-right"></i></button>
                         </div>
                     </form>
                 </article>

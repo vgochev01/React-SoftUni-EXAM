@@ -1,18 +1,23 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Register.css';
 import * as authService from '../../services/authService';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import AuthContext from '../../contexts/AuthContext';
 
 export default function Login() {
 
     const [err, setError] = useState(null);
+
+    const navigate = useNavigate();
+    const { setUser } = useContext(AuthContext);
 
     function onRegister(ev) {
         ev.preventDefault();
         const { email, username, password } = Object.fromEntries(new  FormData(ev.currentTarget));
         authService.register(email, username, password)
             .then(data => {
-                console.log(data);
+                setUser(data);
+                navigate('/');
             })
             .catch(err => {
                 setError(err.message);

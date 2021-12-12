@@ -6,8 +6,22 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
 
+import AuthContext from './contexts/AuthContext';
+import useLocalStorage from './hooks/useLocalStorage';
+
+import { useEffect } from 'react';
+
 function App() {
+
+  const [user, setUser] = useLocalStorage('user', null);
+
+  useEffect(() => {
+    console.log(user);
+  }, []);
+
   return (
+    <>
+    <AuthContext.Provider value={{ user, setUser }}>
     <div className="App">
       <Header />
 
@@ -22,6 +36,8 @@ function App() {
 
       <Footer />
     </div>
+    </AuthContext.Provider>
+    </>
   );
 }
 
