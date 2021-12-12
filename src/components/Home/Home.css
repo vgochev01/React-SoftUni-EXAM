@@ -3,8 +3,7 @@
   min-height: 500px;
   margin: 77px auto;
   background: transparent;
-  border-bottom-left-radius: 7px;
-  border-bottom-right-radius: 7px;
+  border-radius: 7px;
   display: flex;
   flex-wrap: wrap;
   box-shadow: -1px 3px 7px 0px black;
