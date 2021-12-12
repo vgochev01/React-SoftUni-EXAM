@@ -1,7 +1,24 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import * as authService from '../../services/authService';
 import './Login.css';
 
 export default function Login() {
+
+    const [err, setError] = useState(null);
+
+    function onLogin(ev) {
+        ev.preventDefault();
+        const { email, password } = Object.fromEntries(new  FormData(ev.currentTarget));
+        authService.login(email, password)
+            .then(data => {
+                console.log(data);
+            })
+            .catch(err => {
+                setError(err.message);
+            });
+    }
+
     return (
         <>
             <section id="login">
@@ -10,8 +27,15 @@ export default function Login() {
                     <p>and start using full functionality</p>
                 </article>
 
+                { err != null 
+                ? <article className="errorMsg">
+                    <span>{err}</span>
+                  </article>
+                : ''
+                }
+
                 <article className='login-form-container'>
-                    <form className="loginForm">
+                    <form onSubmit={onLogin} className="loginForm">
                         <div className="formGroup">
                             <label htmlFor="email">Email:</label>
                             <i class="inputIcon fas fa-user"></i>

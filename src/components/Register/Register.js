@@ -1,7 +1,25 @@
 import { Link } from 'react-router-dom';
 import './Register.css';
+import * as authService from '../../services/authService';
+import { useState } from 'react';
 
 export default function Login() {
+
+    const [err, setError] = useState(null);
+
+    function onRegister(ev) {
+        ev.preventDefault();
+        const { email, username, password } = Object.fromEntries(new  FormData(ev.currentTarget));
+        authService.register(email, username, password)
+            .then(data => {
+                console.log(data);
+            })
+            .catch(err => {
+                setError(err.message);
+                
+            });
+    }
+
     return (
         <>
             <section id="register">
@@ -10,8 +28,16 @@ export default function Login() {
                     <p>and start using full functionality</p>
                 </article>
 
+                { err != null 
+                ? <article className="errorMsg">
+                    <span>{err}</span>
+                  </article>
+                : ''
+                }
+                
+
                 <article className='register-form-container'>
-                    <form className="registerForm">
+                    <form onSubmit={onRegister} className="registerForm">
                         <div className="formGroup">
                             <label htmlFor="email">Email:</label>
                             <i class="inputIcon fas fa-envelope"></i>

@@ -108,3 +108,15 @@
 	color: #9342C9;
 	font-weight: bold;
 }
+
+.errorMsg {
+	text-align: center;
+	margin: 15px 0;
+}
+
+.errorMsg span {
+	padding: 10px 30px;
+	background: rgb(255, 163, 163);
+	color: rgb(198, 0, 0);
+	border-radius: 5px;
+}
