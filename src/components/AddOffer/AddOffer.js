@@ -10,11 +10,26 @@ export default function AddOffer() {
     const [categories, setCategories] = useState([]);
 
     const navigate = useNavigate();
+    const { user } = useContext(AuthContext);
 
     useEffect(() => {
         jobsService.getCategories()
             .then(data => setCategories(data));
     }, []);
+
+    function onAdd(ev) {
+        ev.preventDefault();
+        const inputData = Object.fromEntries(new FormData(ev.currentTarget));
+        jobsService.postOffer(inputData, user.accessToken)
+            .then(data => {
+                console.log(data);
+                navigate(`/jobs/${data._id}`);
+            })
+            .catch(err => {
+                setError(err.message);
+            });
+        ;
+    }
 
     return (
         <>
@@ -32,7 +47,7 @@ export default function AddOffer() {
                 }
 
                 <article className='create-form-container'>
-                    <form className="createForm">
+                    <form onSubmit={onAdd} className="createForm">
                         <div className="formGroup">
                             <label htmlFor="position">Position:</label>
                             <input type="text" id="position" name="positionName" />
@@ -65,8 +80,8 @@ export default function AddOffer() {
                             <input type="text" id="companyLogo" name="companyLogo" />
                         </div>
                         <div className="formGroup">
-                            <label htmlFor="salary">Salary:</label>
-                            <input type="number" id="position" name="position" />
+                            <label htmlFor="salary">Salary (EUR):</label>
+                            <input type="number" id="salary" name="salary" />
                         </div>
                         <div className="formGroup">
                             <button className="submitBtn">Add now <i className="fas fa-chevron-right"></i></button>

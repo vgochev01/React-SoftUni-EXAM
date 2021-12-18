@@ -74,6 +74,10 @@
   cursor: pointer;
 }
 
+#create input[type='number'] {
+  text-align: center;
+}
+
 .formGroup textarea {
   resize: none;
   height: 150px;
