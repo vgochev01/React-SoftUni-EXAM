@@ -38,6 +38,10 @@
 	position: relative;
 }
 
+.formGroup div {
+	position: relative;
+}
+
 .formGroup label {
   display: block;
   font-size: 20px;
@@ -46,8 +50,9 @@
 
 .inputIcon {
 	position: absolute;
-	bottom: 11px;
-	left: 8.5px;
+	top: 50%;
+	left: 11px;
+	transform: translateY(-50%);
 }
 
 .formGroup input{

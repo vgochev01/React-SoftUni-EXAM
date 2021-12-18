@@ -43,13 +43,11 @@ export default function Login() {
                     <form onSubmit={onLogin} className="loginForm">
                         <div className="formGroup">
                             <label htmlFor="email">Email:</label>
-                            <i className="inputIcon fas fa-user"></i>
-                            <input type="text" id="email" name="email" placeholder='email@example.com' />
+                            <div><i className="inputIcon fas fa-user"></i><input type="text" id="email" name="email" placeholder='email@example.com' /></div>
                         </div>
                         <div className="formGroup">
                             <label htmlFor="password">Password:</label>
-                            <i className="inputIcon fas fa-lock"></i>
-                            <input type="password" id="password" name="password" placeholder="********" />
+                            <div><i className="inputIcon fas fa-lock"></i><input type="password" id="password" name="password" placeholder="********" /></div>
                         </div>
                         <div className="formGroup">
                             <button className="submitBtn">Log in now <i className="fas fa-chevron-right"></i></button>

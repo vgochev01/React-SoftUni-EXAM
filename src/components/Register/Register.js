@@ -45,18 +45,18 @@ export default function Login() {
                     <form onSubmit={onRegister} className="registerForm">
                         <div className="formGroup">
                             <label htmlFor="email">Email:</label>
-                            <i class="inputIcon fas fa-envelope"></i>
-                            <input type="text" id="email" name="email" placeholder='email@example.com' />
+                            
+                            <div><i class="inputIcon fas fa-envelope"></i><input type="text" id="email" name="email" placeholder='email@example.com' /></div>
                         </div>
                         <div className="formGroup">
                             <label htmlFor="username">Username:</label>
-                            <i class="inputIcon fas fa-user"></i>
-                            <input type="text" id="username" name="username" placeholder='username' />
+                            
+                            <div><i class="inputIcon fas fa-user"></i><input type="text" id="username" name="username" placeholder='username' /></div>
                         </div>
                         <div className="formGroup">
                             <label htmlFor="password">Password:</label>
-                            <i class="inputIcon fas fa-lock"></i>
-                            <input type="password" id="password" name="password" placeholder="********" />
+                            
+                            <div><i class="inputIcon fas fa-lock"></i><input type="password" id="password" name="password" placeholder="********" /></div>
                         </div>
                         <div className="formGroup">
                             <button className="submitBtn">Sign up now <i class="fas fa-chevron-right"></i></button>

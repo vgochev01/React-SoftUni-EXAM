@@ -10,13 +10,14 @@ import AuthContext from './contexts/AuthContext';
 import useLocalStorage from './hooks/useLocalStorage';
 
 import { useEffect } from 'react';
+import AddOffer from './components/AddOffer/AddOffer';
 
 function App() {
 
   const [user, setUser] = useLocalStorage('user', null);
 
   useEffect(() => {
-    console.log(user);
+    
   }, []);
 
   return (
@@ -30,6 +31,7 @@ function App() {
            <Route path="/" element={<Home />} />
            <Route path="/login" element={<Login />} />
            <Route path="/register" element={<Register />} />
+           <Route path="/new-offer" element={<AddOffer />} />
            <Route path="*" element={<h1>404 NOT FOUND!</h1>} />
          </Routes>
       </main>
