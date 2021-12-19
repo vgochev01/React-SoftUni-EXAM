@@ -8,8 +8,7 @@ export async function getCategories() {
 }
 
 export async function postOffer(offer, token){
-    console.log(token);
-    const response = await fetch(`${apiUrl}/offers`, {
+    const response = await fetch(`${apiUrl}/jobs`, {
         method: 'POST',
         headers: {
             'X-Authorization': token,
@@ -21,9 +20,19 @@ export async function postOffer(offer, token){
     const data = await response.json();
 
     if(!response.ok){
-        throw new Error(data.message);
+        throw new Error(data.message  || 'Database Error! Please try again later!');
     }
 
     return data;
-    
+}
+
+export async function get(id = ''){
+    const response = await fetch(`${apiUrl}/jobs/${id}`);
+    const data = await response.json();
+
+    if(!response.ok){
+        throw new Error(data.message || 'Database Error! Please try again later!');
+    }
+
+    return data;
 }
