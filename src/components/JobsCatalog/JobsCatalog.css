@@ -1,0 +1,39 @@
+.catalog-header {
+    background: rgba(245, 245, 245, .7);
+    padding: 50px 50px;
+    font-size: 50px;
+    text-align: center;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.catalog-header span {
+    display: inline-block;
+    font-size: 1.2em;
+    max-width: 800px;
+    line-height: 70px;
+    font-style: italic;
+}
+
+.catalog-header p {
+    font-weight: bold;
+}
+
+.catalog-header a {
+    color: white;
+    background: #8E31CC;
+    padding: 8px 50px;
+    font-size: 0.45em;
+    border-radius: 20px;
+    position: relative;
+}
+
+#catalog .fa-chevron-right {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.catalog-header a:hover {
+    background: #9a4bce;
+}

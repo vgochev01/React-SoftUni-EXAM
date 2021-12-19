@@ -96,7 +96,7 @@
 	outline: none;
 }
 
-.fa-chevron-right {
+#register .fa-chevron-right {
 	font-size: 25px;
 	position: absolute;
 	right: 10px;
