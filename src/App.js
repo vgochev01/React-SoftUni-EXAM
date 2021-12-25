@@ -9,7 +9,7 @@ import Register from './components/Register';
 import AddOffer from './components/AddOffer/';
 import JobsCatalog from './components/JobsCatalog/';
 
-import { AuthContext, AuthProvider } from './contexts/AuthContext';
+import { AuthProvider } from './contexts/AuthContext';
 
 
 import './App.css';
