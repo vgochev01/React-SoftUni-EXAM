@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Register.css';
 import * as authService from '../../services/authService';
 import { useContext, useState } from 'react';
-import AuthContext from '../../contexts/AuthContext';
+import {AuthContext} from '../../contexts/AuthContext';
 
 export default function Login() {
 

@@ -1,21 +1,20 @@
+import { useEffect } from 'react';
 import { Route, Routes } from 'react-router';
-import './App.css';
+
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
-
-import AuthContext from './contexts/AuthContext';
-import useLocalStorage from './hooks/useLocalStorage';
-
-import { useEffect } from 'react';
 import AddOffer from './components/AddOffer/';
 import JobsCatalog from './components/JobsCatalog/';
 
-function App() {
+import { AuthContext, AuthProvider } from './contexts/AuthContext';
 
-  const [user, setUser] = useLocalStorage('user', null);
+
+import './App.css';
+
+function App() {
 
   useEffect(() => {
     
@@ -23,24 +22,24 @@ function App() {
 
   return (
     <>
-    <AuthContext.Provider value={{ user, setUser }}>
-    <div className="App">
-      <Header />
+    <AuthProvider>
+      <div className="App">
+        <Header />
 
-      <main>
-         <Routes>
-           <Route path="/" element={<Home />} />
-           <Route path="/login" element={<Login />} />
-           <Route path="/register" element={<Register />} />
-           <Route path="/jobs" element={<JobsCatalog />} />
-           <Route path="/new-offer" element={<AddOffer />} />
-           <Route path="*" element={<h1>404 NOT FOUND!</h1>} />
-         </Routes>
-      </main>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/jobs" element={<JobsCatalog />} />
+            <Route path="/new-offer" element={<AddOffer />} />
+            <Route path="*" element={<h1>404 NOT FOUND!</h1>} />
+          </Routes>
+        </main>
 
-      <Footer />
-    </div>
-    </AuthContext.Provider>
+        <Footer />
+      </div>
+    </AuthProvider>
     </>
   );
 }
