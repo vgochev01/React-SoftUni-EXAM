@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import './Register.css';
 import * as authService from '../../services/authService';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import {AuthContext} from '../../contexts/AuthContext';
 
 export default function Login() {
@@ -9,7 +9,13 @@ export default function Login() {
     const [err, setError] = useState(null);
 
     const navigate = useNavigate();
-    const { setUser } = useContext(AuthContext);
+    const { user, setUser } = useContext(AuthContext);
+
+    useEffect(() => {
+        if(user != null){
+            navigate('/');
+        }
+    }, []);
 
     function onRegister(ev) {
         ev.preventDefault();

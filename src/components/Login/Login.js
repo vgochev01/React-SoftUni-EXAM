@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {AuthContext} from '../../contexts/AuthContext';
 import * as authService from '../../services/authService';
@@ -9,7 +9,13 @@ export default function Login() {
     const [err, setError] = useState(null);
 
     const navigate = useNavigate();
-    const { setUser } = useContext(AuthContext);
+    const { user, setUser } = useContext(AuthContext);
+
+    useEffect(() => {
+        if(user != null){
+            navigate('/');
+        }
+    }, []);
 
     function onLogin(ev) {
         ev.preventDefault();

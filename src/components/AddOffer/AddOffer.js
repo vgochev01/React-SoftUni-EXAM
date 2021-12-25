@@ -13,8 +13,12 @@ export default function AddOffer() {
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        jobsService.getCategories()
+        if(user == null){
+            navigate('/');
+        } else {
+            jobsService.getCategories()
             .then(data => setCategories(data));
+        }
     }, []);
 
     function onAdd(ev) {
