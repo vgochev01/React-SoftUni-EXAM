@@ -1,0 +1,138 @@
+.details-container {
+    margin: 70px auto;
+    font-size: 50px;
+    max-width: 70%;
+    font-family: Poppins, sans-serif;
+}
+
+#details .job-infos {
+    display: flex;
+}
+
+#details .job-infos h1, #details .job-infos p {
+    margin: 0;
+}
+
+#details .details-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#details .companylogo-container {
+    max-width: 40%;
+    height: 250px;
+}
+
+#details .companylogo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#details .job-description {
+    max-width: 70%;
+    padding: 30px 50px 30px 80px;
+}
+
+#details .job-description h1 {
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding-bottom: 7.5px;
+    border-bottom: 1px solid black;
+}
+
+#details .job-description p {
+    max-width: 85%;
+    margin-top: 22px;
+}
+
+#details .job-description div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+#details .applyBtn {
+    color: white;
+    background: #8E31CC;
+    padding: 12px 80px;
+    font-size: 0.45em;
+    text-transform: uppercase;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+#details .applyBtn:hover,
+#details .applyBtn:focus,
+#details .applyBtn:active {
+    background: #9a4bce;
+}
+
+#details .job-infos aside {
+    max-width: 30%;
+    padding: 30px 0;
+    font-size: 30px;
+}
+
+#details .job-infos aside article {
+    padding: 20px 30px;
+    background: rgba(237, 237, 237, .3);
+    border: 2px solid #b7b6b6;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+#details aside i {
+    margin-right: 7px;
+    flex-basis: 6.5%;
+}
+
+#details aside p {
+    font-size: .7em;
+    display: flex;
+    align-items: center;
+}
+
+#details aside p:nth-of-type(1) {
+    font-size: .9em;
+}
+
+#details .ownerActionBtns {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#details .ownerActionBtns a {
+    flex-basis: 40%;
+    height: 40px;
+}
+
+#details .ownerActionBtn {
+    margin-right: 20px;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    background: #C092DE;
+    border: 2px solid #A565CF;
+    border-radius: 3px;
+    color: #370359;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+#details .ownerActionBtn:hover,
+#details .ownerActionBtn:active,
+#details .ownerActionBtn:focus{
+    background: #A565CF;
+    border: 2px solid #8B15D4;
+    color: white;
+    letter-spacing: 2px;
+}

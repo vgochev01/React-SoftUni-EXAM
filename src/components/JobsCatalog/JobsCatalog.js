@@ -23,6 +23,10 @@ export default function JobsCatalog() {
                 navigate('/');
             });
         }, 2000);
+
+        return () => {
+            setJobs(null);
+        }
     }, []);
 
     return (
