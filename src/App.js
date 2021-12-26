@@ -8,6 +8,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import AddOffer from './components/AddOffer/';
 import JobsCatalog from './components/JobsCatalog/';
+import JobDetails from './components/JobDetails/JobDetails';
 
 import { AuthProvider } from './contexts/AuthContext';
 
@@ -31,7 +32,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/jobs" element={<JobsCatalog />} />
+            <Route path="/jobs/*" element={<JobsCatalog />} />
             <Route path="/new-offer" element={<AddOffer />} />
             <Route path="*" element={<h1>404 NOT FOUND!</h1>} />
           </Routes>
