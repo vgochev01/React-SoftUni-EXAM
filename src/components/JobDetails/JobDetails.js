@@ -53,7 +53,7 @@ export default function JobDetails() {
     return (
         <>
             <section id="details">
-                {showDeleteModal ? <DeleteModal setDeleteConfirmed={setDeleteConfirmed} /> : ''}
+                {showDeleteModal ? <DeleteModal setDeleteConfirmed={setDeleteConfirmed} setShowDeleteModal={setShowDeleteModal} /> : ''}
                 <article className="details-container">
                     { !job ? <Loader /> : 
                     <>  
