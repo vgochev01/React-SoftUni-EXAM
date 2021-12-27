@@ -58,7 +58,9 @@ export default function JobDetails() {
                                 <h1>{job.positionName}</h1>
                                 <p>{job.jobDescription}</p>
                                 <div>
-                                    <button className='applyBtn'>Apply</button>
+                                    <Link to='/jobs'>Back</Link>
+                                    {isOwner ? '' : <button className='applyBtn'>Apply</button> }
+                                    
                                 </div>
                             </article>
                             <aside>
@@ -74,7 +76,7 @@ export default function JobDetails() {
                                         <i class="fas fa-user-tie"></i><span>{job.company}</span>
                                     </p>
                                 </article>
-                                {isOwner ? ownerActionButtons : 'not owner'}
+                                {isOwner ? ownerActionButtons : ''}
                             </aside>
                         </article>
                     </>

@@ -53,6 +53,15 @@
     align-items: center;
     justify-content: center;
     margin-top: 25px;
+    position: relative;
+}
+
+#details .job-description div a {
+    font-size: 0.3em;
+    color: #8E31CC;
+    font-weight: 500;
+    position: absolute;
+    left: 0;
 }
 
 #details .applyBtn {
