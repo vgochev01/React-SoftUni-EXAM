@@ -18,24 +18,38 @@ export default function JobDetails() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        setTimeout(() => {
-            jobsService.get(id)
+
+        if(deleteConfirmed){
+            jobsService.deleteOffer(id, user.accessToken)
+                .then(successMsg => {
+                    console.log(successMsg);
+                    navigate('/jobs');
+                })
+                .catch(err => {
+                    console.error(err);
+                    navigate('/');
+                });
+        }
+        
+        jobsService.get(id)
             .then(data => {
                 setJob(data);
                 if(user) {
                     setIsOwner(user._id == data.owner._id)
+                } else {
+                    setIsOwner(false);
                 }
             })
             .catch(err => {
                 console.error(err);
                 navigate('/');
-            })
-        }, 1000);
-    }, []);
+            });
+
+    }, [user, deleteConfirmed]);
 
     function onDelete(ev) {
         ev.preventDefault();
-        setShowDeleteModal(true);
+        isOwner && setShowDeleteModal(true);
     }
 
     const ownerActionButtons = (
@@ -77,7 +91,7 @@ export default function JobDetails() {
                                 <article>
                                     <p>{job.positionName}</p>
                                     <p>
-                                        <i class="fas fa-industry"></i> <span>{job.category}</span>
+                                        <i className="fas fa-industry"></i> <span>{job.category}</span>
                                     </p>
                                     <p>
                                         <i className="fas fa-map-marker-alt"></i><span>{job.location}</span>
