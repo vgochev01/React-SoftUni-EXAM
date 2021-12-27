@@ -1,0 +1,152 @@
+#edit {
+  max-width: 60%;
+  min-height: 500px;
+  margin: 77px auto;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 7px;
+  /* box-shadow: -1px 3px 7px 0px black; */
+}
+
+.edit-header {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.edit-header h1 {
+  font-size: 44px;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.edit-header p {
+  font-size: 17.5px;
+  margin: 5px 0 0;
+}
+
+.edit-form-container {
+  margin-top: 25px;
+}
+
+.editForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 530px;
+  padding: 0 50px;
+}
+
+#edit .formGroup {
+  margin-bottom: 30px;
+  position: relative;
+  width: 40%;
+}
+
+.formGroup div {
+	position: relative;
+}
+
+.formGroup label {
+  display: block;
+  font-size: 20px;
+  margin: 0 0 5px;
+}
+
+#edit .formGroup input, textarea {
+  border: none;
+  border-bottom: 2px solid #d1d1d4;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  padding-left: 22px;
+  font-weight: 700;
+  width: 100%;
+}
+
+#edit select {
+  border: none;
+  border-bottom: 2px solid #d1d1d4;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  font-weight: 700;
+  width: 100%;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#edit input[type='number'] {
+  text-align: center;
+}
+
+.formGroup textarea {
+  resize: none;
+  height: 150px;
+}
+
+.inputIcon {
+  position: absolute;
+  top: 50%;
+  left: 11px;
+  transform: translateY(-50%);
+}
+ 
+#edit .formGroup input:active, #edit .formGroup textarea:active, #edit select:active,
+#edit .formGroup input:focus, #edit .formGroup textarea:focus, #edit select:focus,
+#edit .formGroup input:hover, #edit .formGroup textarea:hover, #edit select:hover {
+  outline: none;
+  border-bottom-color: #6a679e;
+}
+
+#edit .submitBtn {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  margin-top: 30px;
+  padding: 16px 20px;
+  border-radius: 26px;
+  border: 1px solid #d4d3e8;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #9342c9;
+  box-shadow: 0px 2px 2px #b078d6;
+  cursor: pointer;
+  position: relative;
+  text-align: left;
+}
+
+#edit .submitBtn:active,
+#edit .submitBtn:focus,
+#edit .submitBtn:hover {
+  border-color: #6a679e;
+  outline: none;
+}
+
+#edit .fa-chevron-right {
+  font-size: 25px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.edit-footer {
+  text-align: center;
+  width: 40%;
+}
+
+.profile-link {
+  color: #9342c9;
+  font-weight: bold;
+}
+
+.errorMsg {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.errorMsg span {
+  padding: 10px 30px;
+  background: rgb(255, 163, 163);
+  color: rgb(198, 0, 0);
+  border-radius: 5px;
+}

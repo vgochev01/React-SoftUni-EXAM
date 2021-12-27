@@ -14,7 +14,7 @@ export default function AddOffer() {
 
     useEffect(() => {
         if(user == null){
-            navigate('/');
+            navigate(`/login?returnurl=${encodeURIComponent('/new-offer')}`);
         } else {
             jobsService.getCategories()
             .then(data => setCategories(data));
@@ -26,7 +26,6 @@ export default function AddOffer() {
         const inputData = Object.fromEntries(new FormData(ev.currentTarget));
         jobsService.postOffer(inputData, user.accessToken)
             .then(data => {
-                console.log(data);
                 navigate(`/jobs/${data._id}`);
             })
             .catch(err => {

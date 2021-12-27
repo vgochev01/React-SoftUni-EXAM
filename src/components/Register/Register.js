@@ -52,20 +52,20 @@ export default function Login() {
                         <div className="formGroup">
                             <label htmlFor="email">Email:</label>
                             
-                            <div><i class="inputIcon fas fa-envelope"></i><input type="text" id="email" name="email" placeholder='email@example.com' /></div>
+                            <div><i className="inputIcon fas fa-envelope"></i><input type="text" id="email" name="email" placeholder='email@example.com' /></div>
                         </div>
                         <div className="formGroup">
                             <label htmlFor="username">Username:</label>
                             
-                            <div><i class="inputIcon fas fa-user"></i><input type="text" id="username" name="username" placeholder='username' /></div>
+                            <div><i className="inputIcon fas fa-user"></i><input type="text" id="username" name="username" placeholder='username' /></div>
                         </div>
                         <div className="formGroup">
                             <label htmlFor="password">Password:</label>
                             
-                            <div><i class="inputIcon fas fa-lock"></i><input type="password" id="password" name="password" placeholder="********" /></div>
+                            <div><i className="inputIcon fas fa-lock"></i><input type="password" id="password" name="password" placeholder="********" /></div>
                         </div>
                         <div className="formGroup">
-                            <button className="submitBtn">Sign up now <i class="fas fa-chevron-right"></i></button>
+                            <button className="submitBtn">Sign up now <i className="fas fa-chevron-right"></i></button>
                         </div>
                     </form>
                 </article>

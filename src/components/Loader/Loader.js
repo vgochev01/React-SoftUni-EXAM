@@ -3,7 +3,7 @@ import './Loader.css'
 export default function Loader() {
     return (
         <>
-            <article class="loader">
+            <article className="loader">
                 <img src="/svg/loader.svg" alt='Loading...' />
             </article>
         </>

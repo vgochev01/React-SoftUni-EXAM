@@ -36,3 +36,22 @@ export async function get(id = ''){
 
     return data;
 }
+
+export async function edit(id, offer, token) {
+    const response = await fetch(`${apiUrl}/jobs/${id}`, {
+        method: 'PUT',
+        headers: {
+            'X-Authorization': token,
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(offer)
+    });
+    
+    const data = await response.json();
+
+    if(!response.ok){
+        throw new Error(data.message  || 'Database Error! Please try again later!');
+    }
+
+    return data;
+}

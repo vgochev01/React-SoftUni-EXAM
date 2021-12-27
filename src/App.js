@@ -14,6 +14,7 @@ import { AuthProvider } from './contexts/AuthContext';
 
 
 import './App.css';
+import EditOffer from './components/EditOffer/EditOffer';
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/jobs/*" element={<JobsCatalog />} />
+            <Route path="/jobs/:id/edit" element={<EditOffer />} />
             <Route path="/new-offer" element={<AddOffer />} />
             <Route path="*" element={<h1>404 NOT FOUND!</h1>} />
           </Routes>

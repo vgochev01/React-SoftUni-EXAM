@@ -46,6 +46,7 @@
 #details .job-description p {
     max-width: 85%;
     margin-top: 22px;
+    word-wrap: break-word;
 }
 
 #details .job-description div {

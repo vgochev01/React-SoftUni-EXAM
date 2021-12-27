@@ -67,13 +67,16 @@ export default function JobDetails() {
                                 <article>
                                     <p>{job.positionName}</p>
                                     <p>
-                                        <i class="fas fa-map-marker-alt"></i><span> {job.location}</span>
+                                        <i class="fas fa-industry"></i> <span>{job.category}</span>
                                     </p>
                                     <p>
-                                        <i class="fas fa-euro-sign"></i><span>{job.salary}</span>
+                                        <i className="fas fa-map-marker-alt"></i><span>{job.location}</span>
                                     </p>
                                     <p>
-                                        <i class="fas fa-user-tie"></i><span>{job.company}</span>
+                                        <i className="fas fa-euro-sign"></i><span>{job.salary}</span>
+                                    </p>
+                                    <p>
+                                        <i className="fas fa-user-tie"></i><span>{job.company}</span>
                                     </p>
                                 </article>
                                 {isOwner ? ownerActionButtons : ''}

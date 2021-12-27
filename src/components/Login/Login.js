@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import {AuthContext} from '../../contexts/AuthContext';
 import * as authService from '../../services/authService';
 import './Login.css';
@@ -10,6 +10,9 @@ export default function Login() {
 
     const navigate = useNavigate();
     const { user, setUser } = useContext(AuthContext);
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const returnurl = searchParams.get('returnurl');
 
     useEffect(() => {
         if(user != null){
@@ -23,7 +26,7 @@ export default function Login() {
         authService.login(email, password)
             .then(data => {
                 setUser(data);
-                navigate('/');
+                navigate(returnurl ? decodeURIComponent(returnurl) : '/');
             })
             .catch(err => {
                 setError(err.message);
