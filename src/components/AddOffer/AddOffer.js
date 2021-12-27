@@ -19,7 +19,7 @@ export default function AddOffer() {
             jobsService.getCategories()
             .then(data => setCategories(data));
         }
-    }, []);
+    }, [user]);
 
     function onAdd(ev) {
         ev.preventDefault();

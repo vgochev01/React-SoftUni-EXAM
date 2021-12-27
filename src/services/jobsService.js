@@ -55,3 +55,19 @@ export async function edit(id, offer, token) {
 
     return data;
 }
+
+export async function deleteOffer(id, token) {
+    const response = await fetch(`${apiUrl}/jobs/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'X-Authorization': token,
+            'content-type': 'application/json'
+        }
+    });
+
+    if(!response.ok){
+        throw new Error('Database Error! Please try again later!');
+    }
+
+    return 'You deleted your offer successfuly!';
+}

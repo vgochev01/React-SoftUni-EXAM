@@ -23,21 +23,23 @@ export default function EditOffer() {
             jobsService.getCategories()
             .then(data => setCategories(data));
 
-            jobsService.get(id)
-            .then(data => {
-                setJob(data);
-                const isOwner = user._id == data.owner._id
-                if(!isOwner){
+            setTimeout(() => {
+                jobsService.get(id)
+                .then(data => {
+                    setJob(data);
+                    const isOwner = user._id == data.owner._id
+                    if(!isOwner){
+                        navigate('/');
+                    }
+                    setIsOwner(user._id == data.owner._id)
+                })
+                .catch(err => {
+                    console.error(err);
                     navigate('/');
-                }
-                setIsOwner(user._id == data.owner._id)
-            })
-            .catch(err => {
-                console.error(err);
-                navigate('/');
-            })
+                })
+            }, 1000);
         }
-    }, []);
+    }, [user]);
 
     function onEdit(ev) {
         ev.preventDefault();
@@ -45,7 +47,7 @@ export default function EditOffer() {
         if(!isOwner){
             return;
         }
-        
+
         const inputData = Object.fromEntries(new FormData(ev.currentTarget));
         jobsService.edit(id, inputData, user.accessToken)
             .then(data => {

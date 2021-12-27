@@ -5,17 +5,21 @@ import * as jobsService from '../../services/jobsService';
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
+import DeleteModal from '../DeleteModal/DeleteModal';
 
 export default function JobDetails() {
     const [job, setJob] = useState(null);
     const [isOwner, setIsOwner] = useState(false);
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [deleteConfirmed, setDeleteConfirmed] = useState(false);
 
     const { user } = useContext(AuthContext);
     const { id } = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
-        jobsService.get(id)
+        setTimeout(() => {
+            jobsService.get(id)
             .then(data => {
                 setJob(data);
                 if(user) {
@@ -26,7 +30,13 @@ export default function JobDetails() {
                 console.error(err);
                 navigate('/');
             })
+        }, 1000);
     }, []);
+
+    function onDelete(ev) {
+        ev.preventDefault();
+        setShowDeleteModal(true);
+    }
 
     const ownerActionButtons = (
         <>
@@ -34,9 +44,8 @@ export default function JobDetails() {
                 <p style={{marginBottom: '7px'}}>Manage Your Job Offer</p>
                 <div className="ownerActionBtns">
                     <Link to={`/jobs/${id}/edit`}><button className="ownerActionBtn">Edit</button></Link>
-                    <Link to={`/jobs/${id}/delete`}><button className="ownerActionBtn">Delete</button></Link>
+                    <Link onClick={onDelete} to={`/jobs/${id}/delete`}><button className="ownerActionBtn">Delete</button></Link>
                 </div>
-                
             </article>
         </>
     )
@@ -44,6 +53,7 @@ export default function JobDetails() {
     return (
         <>
             <section id="details">
+                {showDeleteModal ? <DeleteModal setDeleteConfirmed={setDeleteConfirmed} /> : ''}
                 <article className="details-container">
                     { !job ? <Loader /> : 
                     <>  
