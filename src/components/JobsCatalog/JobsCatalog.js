@@ -22,7 +22,7 @@ export default function JobsCatalog() {
                 console.error(err);
                 navigate('/');
             });
-        }, 2000);
+        }, 500);
 
         return () => {
             setJobs(null);

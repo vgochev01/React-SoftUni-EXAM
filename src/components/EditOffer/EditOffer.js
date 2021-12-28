@@ -37,7 +37,7 @@ export default function EditOffer() {
                     console.error(err);
                     navigate('/');
                 })
-            }, 1000);
+            }, 500);
         }
     }, [user]);
 

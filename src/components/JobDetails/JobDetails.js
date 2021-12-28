@@ -23,7 +23,7 @@ export default function JobDetails() {
             jobsService.deleteOffer(id, user.accessToken)
                 .then(successMsg => {
                     console.log(successMsg);
-                    navigate('/jobs');
+                    navigate('/profile');
                 })
                 .catch(err => {
                     console.error(err);
