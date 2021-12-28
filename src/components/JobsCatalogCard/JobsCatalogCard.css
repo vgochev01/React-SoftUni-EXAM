@@ -14,6 +14,14 @@
     border-bottom: 1px solid black;
     color: #6a12a4;
     font-weight: 600;
+    position: relative;
+}
+
+.job-card h1 span {
+    position: absolute;
+    bottom: 5px;
+    right: 15px;
+    font-size: 0.4em;
 }
 
 .job-card-leftside {
