@@ -87,7 +87,7 @@ export default function JobDetails() {
             <article className='usersApplied'>
                 <span className='candidates-text'>Candidates</span>
                 <div className="users-applied-list">
-                    {job && job.applicants.map(u => <span className='applied-user-email' key={u._id}>{u.email} <i class="fas fa-envelope-square"></i></span>)}
+                    {job && job.applicants.map(u => <span className='applied-user-email' key={u._id}>{u.email} <i className="fas fa-envelope-square"></i></span>)}
                 </div>
             </article>
         </>
