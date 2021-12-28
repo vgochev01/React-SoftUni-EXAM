@@ -9,12 +9,14 @@ import Register from './components/Register';
 import AddOffer from './components/AddOffer/';
 import JobsCatalog from './components/JobsCatalog/';
 import Profile from './components/Profile/';
+import EditOffer from './components/EditOffer/';
+import About from './components/About/';
+import NotFound from './components/NotFound';
 
 import { AuthProvider } from './contexts/AuthContext';
 
 
 import './App.css';
-import EditOffer from './components/EditOffer/EditOffer';
 
 function App() {
 
@@ -37,7 +39,8 @@ function App() {
             <Route path="/jobs/*" element={<JobsCatalog />} />
             <Route path="/jobs/:id/edit" element={<EditOffer />} />
             <Route path="/new-offer" element={<AddOffer />} />
-            <Route path="*" element={<h1>404 NOT FOUND!</h1>} />
+            <Route path="/about" element={<About />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
 
