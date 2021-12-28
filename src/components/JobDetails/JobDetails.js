@@ -80,6 +80,17 @@ export default function JobDetails() {
                 </div>
             </article>
         </>
+    );
+
+    const appliedUsers = (
+        <>
+            <article className='usersApplied'>
+                <span className='candidates-text'>Candidates</span>
+                <div className="users-applied-list">
+                    {job && job.applicants.map(u => <span className='applied-user-email' key={u._id}>{u.email} <i class="fas fa-envelope-square"></i></span>)}
+                </div>
+            </article>
+        </>
     )
 
     return (
@@ -121,7 +132,10 @@ export default function JobDetails() {
                                         <i className="fas fa-user-tie"></i><span>{job.company}</span>
                                     </p>
                                 </article>
+
                                 {isOwner ? ownerActionButtons : ''}
+
+                                { isOwner && job && job.applicants.length > 0 ? appliedUsers : ''}
                             </aside>
                         </article>
                     </>
