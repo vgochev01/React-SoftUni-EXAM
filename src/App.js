@@ -8,7 +8,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import AddOffer from './components/AddOffer/';
 import JobsCatalog from './components/JobsCatalog/';
-import JobDetails from './components/JobDetails/JobDetails';
+import Profile from './components/Profile/';
 
 import { AuthProvider } from './contexts/AuthContext';
 
@@ -33,6 +33,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/jobs/*" element={<JobsCatalog />} />
             <Route path="/jobs/:id/edit" element={<EditOffer />} />
             <Route path="/new-offer" element={<AddOffer />} />

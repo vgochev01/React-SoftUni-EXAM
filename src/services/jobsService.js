@@ -71,3 +71,20 @@ export async function deleteOffer(id, token) {
 
     return 'You deleted your offer successfuly!';
 }
+
+export async function applyToOffer(id, token) {
+    const response = await fetch(`${apiUrl}/jobs/${id}/apply`, {
+        method: 'GET',
+        headers: {
+            'X-Authorization': token
+        }
+    });
+    
+    const data = await response.json();
+
+    if(!response.ok){
+        throw new Error(data.message  || 'Database Error! Please try again later!');
+    }
+
+    return data;
+}

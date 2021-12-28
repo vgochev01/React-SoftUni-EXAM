@@ -3,10 +3,10 @@ import Loader from "../Loader";
 
 import './CatalogContainer.css';
 
-export default function CatalogContainer({ jobs }) {
+export default function CatalogContainer({ jobs, emptyMsg }) {
 
     let jobsTemplate = (
-        <p className='empty-catalog'>Our catalog is empty. Be the first to post a job offer on our app!</p>
+        <p className='empty-catalog'>{emptyMsg}</p>
     );
 
     if(jobs != null && jobs.length > 0){

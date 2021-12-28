@@ -1,0 +1,55 @@
+#profile {
+    max-width: 60%;
+    min-height: 500px;
+    margin: 77px auto;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 7px;
+    
+    .profile-header {
+        padding: 30px 120px;
+        text-align: center;
+        font-size: 35px;
+        font-family: 'Poppins';
+
+        h1 {
+            font-weight: 500;
+            letter-spacing: 1.3px;
+            margin: 0;
+            font-size: 1.5em;
+        }
+    }
+
+    .offers-container {
+        max-width: 80%;
+        margin: 0 auto;
+        padding-bottom: 5px;
+
+        div span {
+            font-size: 1.6em;
+            display: block;
+            text-align: center;
+            padding: 15px 0;
+            background: #C092DE;
+            border-radius: 8px;
+            color: #3d0265;
+            letter-spacing: 1px;
+        }
+
+        .catalog-container {
+            margin: 40px 0;
+
+            a {
+                width: 110%;
+                max-width: 110%;
+            }
+
+            .empty-catalog {
+                padding: 20px 40px;
+                width: 80%;
+                text-align: center;
+            }
+        }
+    }
+
+    
+}

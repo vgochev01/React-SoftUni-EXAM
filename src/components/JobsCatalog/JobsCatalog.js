@@ -29,6 +29,8 @@ export default function JobsCatalog() {
         }
     }, []);
 
+    const emptyMsg = 'Our catalog is empty. Be the first to post a job offer on our app!';
+
     return (
         <>
             <section id="catalog">
@@ -39,7 +41,7 @@ export default function JobsCatalog() {
                 </article>
 
                 <Routes>
-                    <Route path="/" element={<CatalogContainer jobs={jobs} />} />
+                    <Route path="/" element={<CatalogContainer emptyMsg={emptyMsg} jobs={jobs} />} />
                     <Route path="/:id" element={<JobDetails />} />
                 </Routes>
                 

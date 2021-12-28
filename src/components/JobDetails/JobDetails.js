@@ -31,7 +31,8 @@ export default function JobDetails() {
                 });
         }
         
-        jobsService.get(id)
+        if(job == null) {
+            jobsService.get(id)
             .then(data => {
                 setJob(data);
                 if(user) {
@@ -44,13 +45,30 @@ export default function JobDetails() {
                 console.error(err);
                 navigate('/');
             });
-
-    }, [user, deleteConfirmed]);
+        }
+        
+    }, [user, job, deleteConfirmed]);
 
     function onDelete(ev) {
         ev.preventDefault();
         isOwner && setShowDeleteModal(true);
     }
+
+    function onApply(ev) {
+        if(!user || isOwner){
+            return;
+        }
+
+        jobsService.applyToOffer(id, user.accessToken)
+            .then(data => {
+                setJob(data);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
+
+    const hasApplied = user && job ? job.applicants.some(u => u._id == user._id) : null;
 
     const ownerActionButtons = (
         <>
@@ -83,8 +101,8 @@ export default function JobDetails() {
                                 <p>{job.jobDescription}</p>
                                 <div>
                                     <Link to='/jobs'>Back</Link>
-                                    {isOwner ? '' : <button className='applyBtn'>Apply</button> }
-                                    
+                                    { user && !hasApplied && !isOwner ? <button onClick={onApply} className='applyBtn'>Apply</button> : '' }
+                                    { user && hasApplied ? <span className="user-applied">You have applied for this job offer.</span> : '' }
                                 </div>
                             </article>
                             <aside>

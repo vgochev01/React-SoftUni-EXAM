@@ -78,6 +78,13 @@
     outline: none;
 }
 
+#details .user-applied {
+    font-size: 18.5px;
+    padding: 5px 30px;
+    background: #C092DE;
+    border-radius: 4px;
+}
+
 #details .applyBtn:hover,
 #details .applyBtn:focus,
 #details .applyBtn:active {
