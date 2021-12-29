@@ -7,7 +7,7 @@ export default function JobsCatalogCard({ job }) {
             <Link to={`/jobs/${job._id}`}>
             <article className="job-card">
                 <article className="job-card-leftside">
-                    <h1>{job.positionName} <span>{job.category}</span></h1>
+                    <h1>{job.positionName}</h1>
                     <article className='job-card-leftside-down'>
                         <p><i className="fas fa-map-marker-alt"></i> {job.location}</p>
                         <p><i className="fas fa-euro-sign"></i> Salary: {job.salary}</p>
